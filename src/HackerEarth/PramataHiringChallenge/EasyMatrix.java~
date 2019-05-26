@@ -72,8 +72,8 @@ class EasyMatrix{
 				tempstring.delete(tempstring.length()-1,tempstring.length());
 				dp[x][y]=tempstring+temp;	
 			}else{
-				dp[x][y]=tempstring+dp[x][y+1];
-				//backtrackOnMatrix(N-1,M-1,tempstring,dp[x][y+1]);
+				dp[x][y]=tempstring+temp;
+				backtrackOnMatrix(N-1,M-1,tempstring,dp[x][y+1]);
 			}
 		}
 		

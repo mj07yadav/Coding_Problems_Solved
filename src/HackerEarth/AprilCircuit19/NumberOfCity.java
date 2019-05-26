@@ -28,13 +28,7 @@ class NumberOfCity{
 		}
 	}
 	
-	/*
-	for (int i=1;i<=N;i++){
-		for(int j=1;j<=M;j++){
-			System.out.print(arr[i][j]+" ");
-		}
-		System.out.println();
-	}*/
+	
 	
 	chararray=new char[N+1][(2*M)+1];
 	for(int i=0;i<=N;i++){
@@ -44,13 +38,7 @@ class NumberOfCity{
 			chararray[i][j]=s.charAt(j);
 		}
 	}
-	/*
-	for(int i=0;i<=N;i++){
-		for(int j=0;j<=(2*M);j++){
-			System.out.print(chararray[i][j]);
-		}
-		System.out.println();
-	} */
+
 	
 	int Q=Integer.parseInt(bf.readLine());
 	while(Q-->0){
@@ -138,9 +126,6 @@ class NumberOfCity{
 				//System.out.println(xx+" "+acy+" "+maxinmin+" "+arr[xx][acy]);
 			
 		}
-		
-		
-		
 	}
 }
 

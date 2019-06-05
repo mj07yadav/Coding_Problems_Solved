@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry excluding="HackerEarth/AtherChallenge/|SPOJ CLassic/|HackerEarth/LazyPay/|HackerEarth/PramataHiringChallenge/|Codechef/LunchTimeApril2019/|SortingAlgorithms/|HackerEarth/AprilCircuit19/|HackerEarth/Amazon_Hiring_Challenge/|HackerEarth/MeeshoChallenge/|HackerEarth/WissenChallenge/|Test/|HackerEarth/PHP Challenge/|HackerEarth/May_Circuit/" kind="src" path="src"/>
+	<classpathentry kind="src" path="src/Codechef/LunchTimeApril2019"/>
+	<classpathentry kind="src" path="src/HackerEarth/Amazon_Hiring_Challenge"/>
+	<classpathentry kind="src" path="src/HackerEarth/AprilCircuit19"/>
+	<classpathentry kind="src" path="src/HackerEarth/AtherChallenge"/>
+	<classpathentry kind="src" path="src/HackerEarth/LazyPay"/>
+	<classpathentry kind="src" path="src/HackerEarth/May_Circuit"/>
+	<classpathentry kind="src" path="src/HackerEarth/MeeshoChallenge"/>
+	<classpathentry kind="src" path="src/HackerEarth/PHP Challenge"/>
+	<classpathentry kind="src" path="src/HackerEarth/PramataHiringChallenge"/>
+	<classpathentry kind="src" path="src/HackerEarth/WissenChallenge"/>
+	<classpathentry kind="src" path="src/SortingAlgorithms"/>
+	<classpathentry kind="src" path="src/SPOJ CLassic"/>
+	<classpathentry kind="src" path="src/Test"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

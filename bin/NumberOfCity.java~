@@ -1,0 +1,134 @@
+import java.util.*;
+import java.io.*;
+
+class NumberOfCity{
+	static BufferedReader bf=new BufferedReader(new InputStreamReader(System.in));
+	static PrintWriter out=new PrintWriter(System.out);
+	static StringBuilder finalprint=new StringBuilder("");
+	static int[][] arr;
+	static boolean[][] visited ;
+	static char[][] chararray;
+	static int[][] level ;
+	static int N;
+	static int M;
+	static int max;
+	static int min=Integer.MAX_VALUE;
+	static PriorityQueue pr=new PriorityQueue();
+	public static void main(String args[])throws Exception{
+	StringTokenizer stk=new StringTokenizer(bf.readLine());
+	N=Integer.parseInt(stk.nextToken());
+	M=Integer.parseInt(stk.nextToken());
+	int Ax=Integer.parseInt(stk.nextToken());
+	int Ay=Integer.parseInt(stk.nextToken());
+	
+	arr=new int[N+1][M+1];
+	for (int i=1;i<=N;i++){
+		for(int j=1;j<=M;j++){
+			arr[i][j]=Integer.MAX_VALUE;
+		}
+	}
+	
+	
+	
+	chararray=new char[N+1][(2*M)+1];
+	for(int i=0;i<=N;i++){
+		String s=bf.readLine();
+		for(int j=0;j<(2*M);j++){
+			//System.out.println((N+1)+" "+((2*M)+1)+" "+M+" "+N+" "+i+" "+j);
+			chararray[i][j]=s.charAt(j);
+		}
+	}
+
+	
+	int Q=Integer.parseInt(bf.readLine());
+	while(Q-->0){
+	stk=new StringTokenizer(bf.readLine());
+	int src=Integer.parseInt(stk.nextToken());
+	int des=Integer.parseInt(stk.nextToken());
+	visited=new boolean[N+1][M+1];
+	level=new int[N+1][M+1];
+	Queue<Integer> xq=new LinkedList<>();
+	xq.add(src);
+	Queue<Integer> yq=new LinkedList<>();
+	yq.add(des);
+	level[src][des]=0;
+	max=Integer.MIN_VALUE;
+	bfsForMatrixFill(src,des,xq,yq);
+	//System.out.println("");
+	if(min>max)
+		min=max;
+	}
+	
+	out.println(min);
+	out.close();
+	}
+	
+	
+	public static void bfsForMatrixFill(int x,int y,Queue xq,Queue yq){
+		
+		
+		while(!xq.isEmpty() && !yq.isEmpty()){
+			int xx=(int)xq.poll();
+			int acy=(int)yq.poll();
+			
+			int yy=((acy*2)-1);
+			//System.out.println("hellow "+arr[xx][acy]);
+			
+			//System.out.println(xx+" "+acy+" "+(acy+1)+" "+chararray[xx][yy+1]+"s "+((acy+1)<=M)+" "+M);
+			
+			if(arr[xx][acy]>level[xx][acy]){
+				arr[xx][acy]=level[xx][acy];
+				
+			}
+			//System.out.println("hellow ");
+			//right movement x+1, y
+			if((acy+1)<=M && (chararray[xx][yy+1]!='|') && visited[xx][acy+1]==false){
+			//	System.out.println("here 1");
+				visited[xx][acy+1]=true;
+				level[xx][acy+1]=level[xx][acy]+1;
+				xq.add(xx);
+				yq.add(acy+1);
+				//bfsForMatrixFill(xx,acy+1,xq,yq,value+1);
+			}
+				
+			//left mevement
+			if((acy-1)>0 && (chararray[xx][yy-1]!='|') && visited[xx][acy-1]==false){
+				//System.out.println("here 2");
+				visited[xx][acy-1]=true;
+				level[xx][acy-1]=level[xx][acy]+1;
+				xq.add(xx);
+				yq.add(acy-1);
+				//bfsForMatrixFill(xx,acy-1,xq,yq,value+1);
+			}
+			
+			//up movement 
+			if(xx>0 && (chararray[xx-1][yy]!='_') && visited[xx-1][acy]==false){
+					//		System.out.println("here 3");
+				visited[xx-1][acy]=true;
+				level[xx-1][acy]=level[xx][acy]+1;
+				xq.add(xx-1);
+				yq.add(acy);
+				//bfsForMatrixFill(xx-1,acy,xq,yq,value+1);
+			}
+			
+			//down movement
+			if(xx<=N && (chararray[xx][yy]!='_') && visited[xx+1][acy]==false){
+				//			System.out.println("here 4");
+				visited[xx+1][acy]=true;
+				level[xx+1][acy]=level[xx][acy]+1;
+				xq.add(xx+1);
+				yq.add(acy);
+				//bfsForMatrixFill(xx+1,acy,xq,yq,value+1);
+			}
+			
+			if(max<arr[xx][acy])
+					max=arr[xx][acy];
+				//System.out.println(xx+" "+acy+" "+maxinmin+" "+arr[xx][acy]);
+			
+		}
+		
+		
+		
+	}
+}
+
